@@ -45,12 +45,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                     KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
   KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
   KC_LSFT,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                     KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-  KC_LCTRL, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,   KC_GRV, KC_ENT,   KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_RSFT,
-                        KC_LBRC, KC_LALT, KC_LGUI, MO(_SUPER), KC_SPC, MO(_RAISE), KC_RGUI, KC_RBRC
+  KC_LCTL, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,   KC_GRV, KC_ENT,   KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_RSFT,
+                        MO(_RGB), KC_LALT, KC_LGUI, MO(_SUPER), KC_SPC, MO(_RAISE), KC_RGUI, KC_RBRC
 ),
 /* SUPER
  * ,-----------------------------------------.                    ,-----------------------------------------.
- * | Pwr  |Pwr Dn| Sleep| Wake | XXXX | XXXX |                    |  \|  |  `~  |  }   |  -_  |  =+  |BackSP|
+ * | Pwr  |Pwr Dn| Sleep| Wake | XXXX |QK_BOOT|                    |  \|  |  `~  |  }   |  -_  |  =+  |BackSP|
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |  Tab | Tab  | ESC  |Enter |LCTRL |  {   |                    |  _   |  Tab |  Up  |  {[  |  ]}  |  \|  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
@@ -58,16 +58,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------| CAPS  |    |   )   |------+------+------+------+------+------|
  * |LCTRL |LCTRL | Home |Pg Up |Pg Dwn| End  |-------|    |-------|   B  |   V  |   C  |   X  |   Z  |RShift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   |Trans | LAlt |LGUI  | /Trans  /       \Space \  |Del   | TGUI |Trans |
+ *                   |QK_BOOT | LAlt |LGUI  | /Trans  /       \Space \  |Del   | TGUI |XXXX |
  *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
 [_SUPER] = LAYOUT(
-  KC_POWER,  KC_PWR,   KC_SLEP,  KC_WAKE,  KC_NO,     KC_NO,                         KC_BSLS,  KC_GRV,   KC_RCBR,  KC_MINS,  KC_EQL,  KC_BSPC,
-  KC_TAB,    KC_TAB,   KC_ESC,   KC_ENT,   KC_LCTRL,  KC_LCBR,                       KC_UNDS,  KC_TAB,   KC_UP,    KC_LBRC,  KC_RBRC, KC_TRNS,
-  KC_LSFT,   KC_LSFT,  KC_LGUI,  KC_LALT,  KC_BSPC,   KC_LCTRL,                      KC_Z,     KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_EQL,  KC_ENT,
-  KC_LCTL,   KC_LCTL,  KC_HOME,  KC_PGUP,  KC_PGDN,   KC_END,   KC_CAPS,  KC_RPRN,   KC_B,     KC_V,     KC_C,     KC_X,     KC_Z,    KC_RSFT,
-                                   KC_TRNS, KC_LALT, KC_LGUI, KC_TRNS,      KC_SPC, KC_DEL, KC_RGUI, KC_TRNS
+  KC_KB_POWER, KC_PWR,   KC_SLEP,  KC_WAKE,  KC_NO,    QK_BOOT,                       KC_BSLS,  KC_GRV,   KC_RCBR,  KC_MINS,  KC_EQL,  KC_BSPC,
+  KC_TAB,      KC_TAB,   KC_ESC,   KC_ENT,   KC_LCTL,  KC_LCBR,                       KC_UNDS,  KC_TAB,   KC_UP,    KC_LBRC,  KC_RBRC, KC_TRNS,
+  KC_LSFT,     KC_LSFT,  KC_LGUI,  KC_LALT,  KC_BSPC,  KC_LCTL,                       KC_Z,     KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_EQL,  KC_ENT,
+  KC_LCTL,     KC_LCTL,  KC_HOME,  KC_PGUP,  KC_PGDN,  KC_END,   KC_CAPS,  KC_RPRN,   KC_B,     KC_V,     KC_C,     KC_X,     KC_Z,    KC_RSFT,
+                                   QK_BOOT, KC_LALT, KC_LGUI, KC_TRNS,      KC_SPC, KC_DEL, KC_RGUI, KC_NO
 ),
 /* RAISE
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -79,9 +79,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  BRID |    | BRIU  |------+------+------+------+------+------|
  * |LCTRL |LCTRL | MRWD | MPLY | MFFD | MSTP |-------|    |-------| End  |Pg Dwn|Pg Up | Home |RShift|RShift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   |MS_BT2| LAlt | LGUI | /BackSP /       \Trans \  |Trans |Trans | XXXX |
- *                   |      |      |      |/       /         \      \ |      |      |      |
- *                   `----------------------------'           '------''--------------------'
+ *                   |MS_BT2| LAlt | LGUI | /BackSP /       \Trans \  |Trans |Trans | QK_BOOT |
+ *                   |      |      |      |/       /         \      \ |      |      |         |
+ *                   `----------------------------'           '------''-----------------------'
  */
 
 [_RAISE] = LAYOUT(
@@ -89,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,  KC_TAB,  KC_NO,   KC_LPRN,  KC_RPRN,  KC_TAB,                        KC_MUTE,  KC_VOLU,  KC_UP,   MO(_MOUSE),  KC_ENT,      KC_CAPS,
   KC_LSFT, KC_LSFT, KC_DEL,  KC_LBRC,  KC_RBRC,  KC_GRV,                        KC_VOLD,  KC_LEFT,  KC_DOWN, KC_RGHT,     KC_RSFT,     KC_ENT,
   KC_LCTL, KC_LCTL, KC_MRWD, KC_MPLY,  KC_MFFD,  KC_MSTP,   KC_BRID, KC_BRIU,   KC_END,   KC_PGDN,  KC_PGUP, KC_HOME,     KC_RSFT,     KC_RSFT,
-                               KC_NO, KC_LALT, KC_LGUI, KC_BSPC,      KC_TRNS, KC_TRNS, KC_TRNS, KC_NO
+                               KC_NO, KC_LALT, KC_LGUI, KC_BSPC,      KC_TRNS, KC_TRNS, KC_TRNS, QK_BOOT
 ),
 /* MOUSE
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -261,12 +261,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 #include <stdio.h>
-#include "lily58.h"
 
 #define L_BASE 0
 #define L_SUPER (1 << 1)
 #define L_RAISE (1 << 2)
-#define L_RGB (1 << 2)
+#define L_RGB (1 << 3)
 
 char layer_state_str[24];
 
@@ -286,7 +285,7 @@ const char *read_layer_state(void) {
     snprintf(layer_state_str, sizeof(layer_state_str), "Layer: RGB");
     break;
   default:
-    snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Undef-%ld", layer_state);
+    snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Undef-%d", layer_state);
   }
 
   return layer_state_str;
