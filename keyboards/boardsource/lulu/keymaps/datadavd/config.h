@@ -4,4 +4,6 @@
 #define MASTER_LEFT
 
 /* Mouse Key configs */
-#define MOUSEKEY_DELAY 50
+#define MOUSEKEY_DELAY 10
+#define MOUSEKEY_INTERVAL 16
+#define MOUSEKEY_MAX_SPEED 2
