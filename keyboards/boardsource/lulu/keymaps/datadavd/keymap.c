@@ -38,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
   KC_LSFT,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                     KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   KC_LCTL, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,   KC_GRV, KC_ENT,   KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_RSFT,
-                        RGB, KC_LALT, KC_LGUI, SUPER,      KC_SPC, RAISE, KC_RGUI, KC_RBRC
+                        RGB, KC_LALT, KC_LGUI, SUPER,      KC_SPC, RAISE, KC_RGUI, RGB
 ),
 /* SUPER
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -85,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 /* MOUSE
  * ,-----------------------------------------.                    ,-----------------------------------------.
- * | XXXX | XXXX | XXXX | XXXX | XXXX | XXXX |       lggg lggggg               | XXXX | XXXX | XXXX | XXXX | XXXX | XXXX |
+ * | XXXX | XXXX | XXXX | XXXX | XXXX | XXXX |                    | XXXX | XXXX | XXXX | XXXX | XXXX | XXXX |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | XXXX | XXXX |MS_W_D| MS_U |MS_W_U| XXXX |                    | XXXX | XXXX | XXXX |Trans |LShift| XXXX |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
@@ -114,7 +114,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | XXXX | XXXX | XXXX | XXXX | XXXX | XXXX |-------.    ,-------|RGBMOD|BRGHT+| SAT+ | HUE+ | XXXX | XXXX |
  * |------+------+------+------+------+------|  XXXX |    |RGBTOG |------+------+------+------+------+------|
- * | XXXX | XXXX | XXXX | XXXX | XXXX | XXXX |-------|    |-------| XXXX |BRGHT-| SAT- | HUE- | XXXX | XXXX |
+ * | XXXX | XXXX | XXXX | XXXX | XXXX | XXXX |-------|    |-------|RGBRMOD|BRGHT-| SAT- | HUE- | XXXX | XXXX |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | XXXX | XXXX | XXXX | /  XXXX /       \ XXXX \   XXXX  | XXXX | XXXX |
  *                   |      |      |      |/       /         \      \ |      |      |      |
@@ -122,10 +122,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_RGB] = LAYOUT(
-  KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,                     KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,
-  KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,                     KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,
-  KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,                     RGB_MOD, RGB_VAI, RGB_SAI, RGB_HUI,    KC_NO,    KC_NO,
-  KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,    KC_NO, RGB_TOG,  KC_NO,   RGB_VAD, RGB_SAD, RGB_HUD,    KC_NO,    KC_NO,
+  KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,                     KC_NO,    KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,
+  KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,                     KC_NO,    KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,
+  KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,                     RGB_MOD,  RGB_VAI, RGB_SAI, RGB_HUI,    KC_NO,    KC_NO,
+  KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,    KC_NO, RGB_TOG,  RGB_RMOD, RGB_VAD, RGB_SAD, RGB_HUD,    KC_NO,    KC_NO,
                                   KC_NO, KC_NO, KC_NO, KC_NO,    KC_NO, KC_NO, KC_NO, KC_NO
 )
 };
