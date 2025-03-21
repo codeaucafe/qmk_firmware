@@ -50,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------| CAPS  |    |   )   |------+------+------+------+------+------|
  * |LCTRL |LCTRL | Home |Pg Up |Pg Dwn| End  |-------|    |-------|   B  |   V  |   C  |   X  |   Z  |RShift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   |QK_BOOT | LAlt |LGUI  | /Trans  /       \Space \  |Del   | TGUI |XXXX |
+ *                   |QK_BOOT | LAlt |LGUI  | /Trans  /       \Space \  |Del   | RGUI |XXXX |
  *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
