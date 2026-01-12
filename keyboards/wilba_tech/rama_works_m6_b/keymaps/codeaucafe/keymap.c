@@ -1,27 +1,33 @@
 #include QMK_KEYBOARD_H
+#include "wt_rgb_backlight_keycodes.h"
+
+enum layers {
+    _BASE,
+    _SECOND,
+    _RGB
+};
+
+#define BASE TO(_BASE)
+#define SECOND TO(_SECOND)
+#define RGB TO(_RGB)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    // Layer 0: Base Layer
-    [0] = LAYOUT(
-        KC_LSFT,    KC_F7,    KC_F8,
-        KC_LGUI,    KC_F2,    TG(1)    // Bottom right key toggles to Layer 1 (RGB controls)
+    // Base layer
+    [_BASE] = LAYOUT(
+        KC_LSFT, KC_F9,   KC_F2,
+        KC_LALT, KC_LGUI, EF_INC
     ),
 
-    // Layer 1: RGB Control Layer
-    [1] = LAYOUT(
-        RGB_TOG, RGB_RMOD, RGB_MOD,  // RGB Toggle, Mode cycle backward, Mode cycle forward
-        KC_BRID, KC_BRIU, TG(2)      // Hue increase, Brightness increase, Toggle to Layer 2
+    // Function layer 1
+    [_SECOND] = LAYOUT(
+        EF_INC, KC_F9,   KC_F2,
+        EF_DEC, KC_3, RGB
+
     ),
 
-    // Layer 2: Function Keys - keeping this the same
-    [2] = LAYOUT(
-        RGB_SAI,   RGB_HUI,   KC_F3,    // Sat+, Hue+
-        RGB_SAD,   RGB_HUD,   TG(3)     // Sat-, Hue-, Toggle to Layer 3
-    ),
-
-    // Layer 3: Media Controls - modified as requested
-    [3] = LAYOUT(
-        KC_MPLY, KC_VOLD, KC_VOLU,  // Play/Pause instead of mute in top left
-        KC_MPRV, KC_MNXT, TG(0)     // Prev track, Next track, Toggle back to Layer 0
+    // Function layer 2 (RGB controls)
+    [_RGB] = LAYOUT(
+        RGB_TOG, RGB_MOD, RGB_RMOD,
+        EF_INC,  EF_DEC,  BASE
     )
 };

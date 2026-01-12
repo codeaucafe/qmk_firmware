@@ -11,3 +11,5 @@ SRC =	keyboards/wilba_tech/wt_main.c \
 		keyboards/wilba_tech/wt_rgb_backlight.c \
 		quantum/color.c \
 		drivers/led/issi/is31fl3218.c
+
+VIA_ENABLE = yes
