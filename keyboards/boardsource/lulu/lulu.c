@@ -26,9 +26,9 @@ bool encoder_update_kb(uint8_t index, bool clockwise) {
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_kb(oled_rotation_t rotation) {
   if (is_keyboard_master()) {
-    return OLED_ROTATION_270;  // Master (left): vertical, bottom-to-top
+    return OLED_ROTATION_270;  // Left (master): vertical
   } else {
-    return OLED_ROTATION_90;   // Slave (right): vertical, top-to-bottom
+    return OLED_ROTATION_90;   // Right (slave): vertical, corrects for flipped PCB
   }
 }
 

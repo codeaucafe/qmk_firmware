@@ -71,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  BRID |    | BRIU  |------+------+------+------+------+------|
  * |LCTRL |LCTRL | MRWD | MPLY | MFFD | MSTP |-------|    |-------| End  |Pg Dwn|Pg Up | Home |RShift|RShift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   |MS_BT2| LAlt | LGUI | /BackSP /       \Trans \  |Trans |Trans | QK_BOOT |
+ *                   | XXXX | LAlt | LGUI | /BackSP /       \Trans \  |Trans |Trans | QK_BOOT |
  *                   |      |      |      |/       /         \      \ |      |      |         |
  *                   `----------------------------'           '------''-----------------------'
  */
